@@ -14,6 +14,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        saveData();
+//        findAll();
+        findByEmail("User2@gmail.com");
+
+    }
+
+    private void findByEmail(String email) {
+        userDAO.findByEmail(email);
+    }
+
+    private void findAllData() {
+        userDAO.findAll();
+    }
+
+    private void saveData() {
         User user1 = new User();
         user1.setName("User1");
         user1.setEmail("User1@gmail.com");
