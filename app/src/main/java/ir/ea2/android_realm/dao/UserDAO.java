@@ -61,6 +61,25 @@ public class UserDAO {
         return user;
     }
 
+    public void deleteAll(){
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                findAll().deleteAllFromRealm();
+            }
+        });
+    }
+
+
+    public void deleteByEmail(final String email){
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                findByEmail(email).deleteFromRealm();
+            }
+        });
+    }
+
     public void close() {
         realm.close();
     }

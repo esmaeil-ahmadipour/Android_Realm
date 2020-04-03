@@ -14,10 +14,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        saveData();
-//        findAll();
+        saveData();
+        findAllData();
         findByEmail("User2@gmail.com");
+        deleteByEmail("User2@gmail.com");
+        deleteAllData();
 
+    }
+
+    private void deleteAllData() {
+    userDAO.deleteAll();
+    }
+
+    private void deleteByEmail(String email) {
+        userDAO.deleteByEmail(email);
     }
 
     private void findByEmail(String email) {
