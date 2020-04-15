@@ -15,16 +15,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 //        saveData();
-        updateData();
-        findAllData();
+//        updateData();
+//        findAllData();
+          findByParameters();
 //        findByEmail("User2@gmail.com");
 //        deleteByEmail("User2@gmail.com");
 //        deleteAllData();
 
     }
 
+    private void findByParameters() {
+        userDAO.findByMultiParameters("", "User9");
+        userDAO.findByMultiParameters("User2@gmail.com", "");
+
+    }
+
     private void deleteAllData() {
-    userDAO.deleteAll();
+        userDAO.deleteAll();
     }
 
     private void deleteByEmail(String email) {
