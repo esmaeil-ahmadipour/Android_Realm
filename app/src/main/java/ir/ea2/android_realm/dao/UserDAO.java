@@ -55,6 +55,19 @@ public class UserDAO {
                 .or()
                 .equalTo("name",name)
                 .findAll();
+// * For Using AND operator : Just Delete .or()
+
+// * For Using NOT operator : writing this body for method =>
+       /*
+        * RealmResults<User> realmResults = realm.where(User.class)
+        * .not()
+        * .beginGroup()
+        * .equalTo("email",email)
+        * .or()
+        * .equalTo("name",name)
+        * .endGroup()
+        * .findAll();
+        */
 
         try {
 
