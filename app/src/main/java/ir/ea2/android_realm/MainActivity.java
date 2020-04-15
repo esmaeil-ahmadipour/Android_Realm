@@ -14,11 +14,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        saveData();
+//        saveData();
+        updateData();
         findAllData();
-        findByEmail("User2@gmail.com");
-        deleteByEmail("User2@gmail.com");
-        deleteAllData();
+//        findByEmail("User2@gmail.com");
+//        deleteByEmail("User2@gmail.com");
+//        deleteAllData();
 
     }
 
@@ -44,11 +45,20 @@ public class MainActivity extends AppCompatActivity {
         user1.setEmail("User1@gmail.com");
 
         User user2 = new User();
-        user1.setName("User2");
-        user1.setEmail("User2@gmail.com");
+        user2.setName("User2");
+        user2.setEmail("User2@gmail.com");
 
         userDAO.save(user1);
         userDAO.save(user2);
+    }
+
+    private void updateData() {
+
+        User user2 = new User();
+        user2.setName("User9");
+        user2.setEmail("User9@gmail.com");
+
+        userDAO.updateData(user2);
     }
 
     @Override
