@@ -16,9 +16,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        saveCategory();
-        updateCategory();
-        findAllCategory();
+//        saveCategory();
+//        updateCategory();
+//        findAllCategory();
+
+setCategoryForUser();
+userDAO.findAllUserAndCategory();
+categoryDAO.findAll();
+
+
 //        saveData();
 //        updateData();
 //        findAllData();
@@ -27,6 +33,18 @@ public class MainActivity extends AppCompatActivity {
 //        deleteByEmail("User2@gmail.com");
 //        deleteAllData();
 
+    }
+
+    private void setCategoryForUser() {
+        Category category = new Category();
+        category.setName("MacAir");
+        categoryDAO.save(category);
+
+        User user = new User();
+        user.setName("User2019");
+        user.setEmail("User2019@gmail.com");
+        user.setCategory(category);
+        userDAO.updateData(user);
     }
 
     private void updateCategory() {

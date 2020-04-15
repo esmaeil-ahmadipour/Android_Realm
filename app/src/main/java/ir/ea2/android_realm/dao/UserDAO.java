@@ -49,6 +49,21 @@ public class UserDAO {
         return realmResults;
     }
 
+    public RealmResults<User> findAllUserAndCategory() {
+        RealmResults<User> realmResults = realm.where(User.class).findAll();
+
+        try {
+
+            for (User user : realmResults) {
+                Log.i("REALM_TAG", user.toString() + " " + user.getCategory().toString());
+            }
+        } catch (Exception ignored) {
+            ignored.printStackTrace();
+        }
+
+        return realmResults;
+    }
+
     public RealmResults<User> findByMultiParameters(String email , String name) {
         RealmResults<User> realmResults = realm.where(User.class)
                 .equalTo("email",email)

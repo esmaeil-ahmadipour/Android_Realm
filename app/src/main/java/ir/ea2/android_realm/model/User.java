@@ -35,4 +35,15 @@ public class User extends RealmObject {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+    private  Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
